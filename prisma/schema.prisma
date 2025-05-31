@@ -1,0 +1,17 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+// ส่วนของโครงสร้างตารางในฐานข้อมูล
+
+model run_tb{
+  runId         Int       @id   @default(autoincrement())
+  runLocation   String    @db.VarChar(150)
+  runDistance   Float     @db.Float
+  runTime       Int       @db.Int
+}
